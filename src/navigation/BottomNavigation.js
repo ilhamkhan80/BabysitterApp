@@ -9,6 +9,7 @@ import Comment from '../BottomScreens/Comment'
 import User from '../BottomScreens/User'
 import LikeBabysitter from '../screens/LikeBabysitter/Index'
 import MyProfile from '../screens/MyProfile/Index'
+import ChatScreen from '../screens/ChatScreen/Index'
 
 const BottomNavigation = () => {
     const Bottom=createBottomTabNavigator()
@@ -33,7 +34,7 @@ const BottomNavigation = () => {
         )
     }}}/>
      <Bottom.Screen name='Chat'
-    component={Comment}
+    component={ChatScreen}
     options={{tabBarIcon:({focused})=>{
         return(
             <View>
