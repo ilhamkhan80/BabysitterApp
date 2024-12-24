@@ -91,16 +91,18 @@ const BookNow = () => {
         </View>
       </View>
       <View style={{ marginHorizontal: 20, marginTop: 10 }}>
-        <Calendar
+        <Calendar  style={{backgroundColor: Colors.Atfernoon}}
           onDayPress={onDayPress}
           markedDates={{
-            [selectedDate]: { selected: true, marked: true, selectedColor: '#3A4DA0' },
+            [selectedDate]: { selected: true, marked: true, selectedColor: '#3A4DA0', },
           }}
           theme={{
+
             selectedDayBackgroundColor: '#3A4DA0',
             selectedDayTextColor: 'white',
             todayTextColor: '#3A4DA0',
             arrowColor: '#3A4DA0',
+            
           }}
         />
         <View style={Styles.radioGroupContainer}>
@@ -135,7 +137,7 @@ const BookNow = () => {
   <Text style={Styles.Fromtext}>From</Text>
 <TextInput placeholder='07:00 Am'/>
 </View>
-<Image style={{width:16,height:18,marginRight:20}}source={require('../../images/Clock.png')}/>
+<Image style={Styles.Clockstyle}source={require('../../images/Clock.png')}/>
 </View>
 </View>
 <View>
@@ -144,7 +146,7 @@ const BookNow = () => {
   <Text style={Styles.Fromtext}>To:</Text>
 <TextInput placeholder='07:00 Am'/>
 </View>
-<Image style={{width:16,height:18,marginRight:20}}source={require('../../images/Clock.png')}/>
+<Image style={Styles.Clockstyle}source={require('../../images/Clock.png')}/>
 </View>
 </View>
 <View>

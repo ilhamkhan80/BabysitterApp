@@ -33,13 +33,8 @@ const Styles = StyleSheet.create({
     Iconstyle:{backgroundColor:'white',width:41,height:41,justifyContent:'center',marginTop:10,alignSelf:'center'},
     ViewIcon:{flexDirection:'row',marginBottom:10,alignItems:'center',gap:10},
     Button:{width:300,height:44,backgroundColor:Colors.purple},
-    IconContainer: {
-        height: 41,        
-        width: 41,
-        backgroundColor: 'white', 
-        textAlign:'center',
-        justifyContent:'center'
-      },
+    IconContainer: { height: 41,width: 41,backgroundColor: 'white',textAlign:'center',justifyContent:'center'},
+    Clockstyle:{width:16,height:18,marginRight:20},
 
 
 

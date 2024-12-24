@@ -60,7 +60,7 @@ const ConfirmBooking = () => {
         </View>
 
         <View style={Styles.Nemostyle}>
-            <View style={{flexDirection:'row',gap:10}}>
+            <View style={Styles.Flexstyle}>
             <Image style={{width:16,height:14,marginLeft:13}} source={require('../../images/Vectoricon.png')}/>
         <Text>*********** 1289
         </Text>
@@ -70,11 +70,11 @@ const ConfirmBooking = () => {
        
       </View>
         <View>
-            <View style={{flexDirection:'row',alignItems:'center',gap:10}}>
-                <View style={{flexDirection:'column'}}>
+            <View style={Styles.Totalstyle}>
+                <View style={Styles.Flexdirection}>
             <Text style={Styles.Total}>Total</Text>
            
-            <Text style={{fontSize:18,marginLeft:10}} >55$</Text>
+            <Text style={Styles.Text55}>55$</Text>
             </View>
             <CustomButton tittle='Proceed to Pay'  customStyle={Styles.Buttonstyle}/>
             </View>

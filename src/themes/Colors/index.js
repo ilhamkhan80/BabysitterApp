@@ -14,7 +14,7 @@ const Colors = {
    darkgray:'#85868F',
    darkGray:'#598193',
    whitesh:'#D9D9D9',
- Atfernoon :'#D8DBEC'
+ Atfernoon :'#D8DBEC',
     
    
     

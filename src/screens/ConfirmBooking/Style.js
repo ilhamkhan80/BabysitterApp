@@ -20,6 +20,10 @@ const Styles = StyleSheet.create({
       Paymentstyle:{width:30,height:19,marginRight:10},
       Total:{fontSize:18,marginLeft:10,color:Colors.purple},
       Buttonstyle:{width:300,height:44,borderRadius:22},
+      Totalstyle:{flexDirection:'row',alignItems:'center',gap:10},
+      Text55:{fontSize:18,marginLeft:10},
+      Flexdirection:{flexDirection:'column'},
+      Flexstyle:{flexDirection:'row',gap:10},
 
 })
 export default Styles

@@ -1,22 +1,31 @@
-import { Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import React, { useMemo, useState } from 'react';
+import {
+    Image,
+    ScrollView,
+    StyleSheet,
+    Text,
+    TouchableOpacity,
+    View,
+    Modal,
+    Button,
+} from 'react-native';
 import Icon from '../../themes/Icons';
 import Styles from '../EditProfile/Style';
 import CustomInput from '../../components/CustomInput';
 import RadioGroup from 'react-native-radio-buttons-group';
 import CustomButton from '../../components/CustomButton';
 import { useNavigation } from '@react-navigation/native';
-import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
+import { launchImageLibrary } from 'react-native-image-picker';
 
 const EditProfile = () => {
-    const navigation = useNavigation()
+    const navigation = useNavigation();
     const [selectedId, setSelectedId] = useState(null);
-    const [username, setUserName] = useState('')
-    const [Email, setEmail] = useState('')
-    const [Location, setLocation] = useState('')
+    const [username, setUserName] = useState('');
+    const [Email, setEmail] = useState('');
+    const [Location, setLocation] = useState('');
+    const [selectedImage, setSelectedImage] = useState(null);
+    const [isModalVisible, setModalVisible] = useState(false);
 
-
-    const [selectedImage, setSelectedImage] = useState(null)
     const openImagePicker = () => {
         const options = {
             mediaType: 'photo',
@@ -58,9 +67,8 @@ const EditProfile = () => {
                 borderColor: '#d3d3d3',
                 borderWidth: 1,
                 borderRadius: 8,
-                padding: 12,
-                marginHorizontal: 8,
-                width: 100,
+                padding: 10,
+                width: 160,
             },
         },
         {
@@ -83,12 +91,15 @@ const EditProfile = () => {
                 borderColor: '#d3d3d3',
                 borderWidth: 1,
                 borderRadius: 8,
-                padding: 12,
-                marginHorizontal: 8,
-                width: 100,
+                padding: 10,
+                width: 160,
             },
         },
     ], [selectedId]);
+
+    const handleUpdateProfile = () => {
+        setModalVisible(true);
+    };
 
     return (
         <ScrollView style={{ padding: 10 }}>
@@ -128,13 +139,34 @@ const EditProfile = () => {
             </View>
             <CustomButton
                 tittle="Update Profile"
-                onPress={() => navigation.navigate('User', { imageUri: selectedImage, username, Email, Location })}
+                onPress={handleUpdateProfile}
                 customStyle={{ width: '90%' }}
-            />        </ScrollView>
+            />
+            <Modal
+                visible={isModalVisible}
+                transparent={true}
+                animationType="slide"
+                onRequestClose={() => setModalVisible(false)}
+            >
+                <View style={Styles.modalContainer}>
+                    <View style={Styles.modalContent}>
+                    <Image style={Styles.Modalimage} source={require('../../images/Modalimage.png')}/>
+
+                        <Text style={Styles.modalText}>Added Sucessfully</Text>
+                        <Text style={Styles.Loremtextstyle}>Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam,{"\n"}   purusorem ipsum dolor sit amet, consectetur adipiscing elit ut{"\n"}</Text>
+                        <Text style={Styles.Loremtextstyle}>aliquam,.</Text>
+                        <CustomButton tittle='close' customStyle={Styles.Buttonstyle}onPress={() => setModalVisible(false)} />
+                    </View>
+                </View>
+            </Modal>
+        </ScrollView>
     );
 };
 
 export default EditProfile;
 
 const styles = StyleSheet.create({
+  
+   
+  
 });

@@ -1,4 +1,4 @@
-import { Image, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { Image, Modal, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import React, { useMemo, useState } from 'react';
 import Icon from '../../themes/Icons';
 import Styles from './Style';
@@ -14,6 +14,8 @@ const Childinfo = () => {
     const [username, setUserName] = useState('')
     const [Email, setEmail] = useState('')
     const[Location,setLocation]=useState('')
+    const [isModalVisible, setModalVisible] = useState(false);
+    
 
 
     const [selectedImage, setSelectedImage] = useState(null)
@@ -59,8 +61,7 @@ const Childinfo = () => {
                 borderWidth: 1,
                 borderRadius: 8,
                 padding: 12,
-                marginHorizontal: 8,
-                width: 100,
+                width: 160,
             },
         },
         {
@@ -84,8 +85,7 @@ const Childinfo = () => {
                 borderWidth: 1,
                 borderRadius: 8,
                 padding: 12,
-                marginHorizontal: 8,
-                width: 100,
+                width: 160,
             },
         },
     ], [selectedId]);
@@ -129,10 +129,26 @@ const Childinfo = () => {
                 />
             </View>
             <CustomButton 
-    tittle="Add Child" 
- 
-    customStyle={{ width: '90%' }} 
-/>        </View>
+    tittle="Add Child"  onPress={()=>setModalVisible(true)}
+    customStyle={{ width: '90%' }}/>    
+                <Modal
+                visible={isModalVisible}
+                transparent={true}
+                animationType="slide"
+                onRequestClose={() => setModalVisible(false)}
+            >
+                <View style={Styles.modalContainer}>
+                    <View style={Styles.modalContent}>
+                    <Image style={Styles.Modalimage} source={require('../../images/Modalimage.png')}/>
+
+                        <Text style={Styles.modalText}>Added Sucessfully</Text>
+                        <Text style={Styles.Loremtextstyle}>Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam,{"\n"}   purusorem ipsum dolor sit amet, consectetur adipiscing elit ut{"\n"}</Text>
+                        <Text style={Styles.Loremtextstyle}>aliquam,.</Text>
+                        <CustomButton tittle='close' customStyle={Styles.Buttonstyle}onPress={() => setModalVisible(false)} />
+                    </View>
+                </View>
+            </Modal>   
+     </View>
     );
 };
 export default Childinfo
