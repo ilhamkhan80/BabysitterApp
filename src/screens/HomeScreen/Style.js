@@ -16,6 +16,7 @@ const Styles = StyleSheet.create({
     Linestyle:{ width: '40%', height: 5,backgroundColor: '#E0E0E0',  borderRadius: 2.5,  alignSelf: 'center', marginVertical: 10, },
     Buttonstyle:{    marginTop: 8, borderWidth: 1, borderColor: '#96A0A6', borderRadius: 12,flexDirection: 'row',alignSelf:'center', alignItems: 'center',justifyContent: 'space-between', paddingHorizontal: 10,},
     Inputstyle:{width:'80%',height:42,backgroundColor:'white',color:'black',alignSelf:'center',justifyContent:'center'} ,
+    Mainview:{ flex: 1, backgroundColor: 'white' },
 
 })
 export default Styles

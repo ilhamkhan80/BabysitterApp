@@ -5,8 +5,8 @@ import Styles from '../FilterScreen/Style';
 import Icon from '../../themes/Icons';
 import Slider from '@react-native-community/slider';
 import Colors from '../../themes/Colors';
-import CheckBox from '@react-native-community/checkbox';
 import CustomButton from '../../components/CustomButton';
+import CustomCheckbox from '../../components/CustomCheckbox';
 
 const FilterScreen = () => {
   const [babyChecked, setBabyChecked] = useState(false);
@@ -61,46 +61,38 @@ const FilterScreen = () => {
       <View style={Styles.Babystyle}>
         <Text style={Styles.Baby}>Baby</Text>
         <View>
-          <CheckBox
-            value={babyChecked}
-            onValueChange={setBabyChecked}
-          />
+        <CustomCheckbox
+         isChecked={babyChecked}
+         onPress={() => setBabyChecked(!babyChecked)}/>
+
         </View>
       </View>
       <View style={Styles.Babystyle}>
         <Text style={Styles.Baby}>Small Kid (1-3)</Text>
         <View>
-          <CheckBox
-            value={smallKid1Checked}
-            onValueChange={setSmallKid1Checked}
-          />
+        <CustomCheckbox isChecked={smallKid1Checked}
+        onPress={()=>setSmallKid1Checked(!smallKid1Checked)}/>
+
         </View>
       </View>
       <View style={Styles.Babystyle}>
         <Text style={Styles.Baby}>Small Kid (3-6)</Text>
         <View>
-          <CheckBox
-            value={smallKid2Checked}
-            onValueChange={setSmallKid2Checked}
-          />
+        <CustomCheckbox isChecked={smallKid2Checked} onPress={()=>setSmallKid2Checked(!smallKid2Checked)}/>
+
         </View>
       </View>
       <View style={Styles.Babystyle}>
         <Text style={Styles.Baby}>Kid (9-12)</Text>
         <View>
-          <CheckBox
-            value={kidChecked}
-            onValueChange={()=>setKidChecked(!kidChecked)}
-          />
+        <CustomCheckbox isChecked={kidChecked} onPress={()=>setKidChecked(!kidChecked)}/>
+
         </View>
       </View>
       <View style={Styles.Babystyle}>
         <Text style={Styles.Baby}>Teenage (12-15)</Text>
         <View>
-          <CheckBox
-            value={teenageChecked}
-            onValueChange={setTeenageChecked}
-          />
+          <CustomCheckbox isChecked={teenageChecked} onPress={()=>setTeenageChecked(!teenageChecked)}/>
         </View>
       </View>
       <View style={Styles.Experience}>

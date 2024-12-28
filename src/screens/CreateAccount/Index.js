@@ -66,7 +66,6 @@ const CreateAccount = () => {
                         withFlag={true}
                         withCallingCode={true}
                         onSelect={onSelect}
-                        // visible
                     />
                     <Text style={styles.callingCode}>
                         +{country?.callingCode}

@@ -35,6 +35,7 @@ const Styles = StyleSheet.create({
     Button:{width:300,height:44,backgroundColor:Colors.purple},
     IconContainer: { height: 41,width: 41,backgroundColor: 'white',textAlign:'center',justifyContent:'center'},
     Clockstyle:{width:16,height:18,marginRight:20},
+    Mainview:{ flex: 1, padding: 10 },
 
 
 

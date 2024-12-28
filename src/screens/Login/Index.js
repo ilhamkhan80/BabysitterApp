@@ -28,7 +28,7 @@ const Login = () => {
           Password
         </Text>
         <View  >
-          <CustomInput placeholder='Password' Icon="true"  color='#3A4DA0'
+          <CustomInput placeholder='Password' Icon="true" color='#3A4DA0'
             name={isPasswordVisible ? 'eye' : 'eye-with-line'} size={20} type="Entypo"
             onPressIcon={() => setIsPasswordVisible(!isPasswordVisible)}
             secureTextEntry={!isPasswordVisible}

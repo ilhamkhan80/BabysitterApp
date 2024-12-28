@@ -51,7 +51,7 @@ const HomeScreen = () => {
   ];
 
   return (
-    <View style={{ flex: 1, backgroundColor: 'white' }}>
+    <View style={Styles.Mainview}>
       <View style={Styles.Buttonstyle}>
         <Icon name='search1' type='AntDesign' color='gray' size={20} />
         <TextInput style={Styles.Inputstyle} placeholder='Search' />

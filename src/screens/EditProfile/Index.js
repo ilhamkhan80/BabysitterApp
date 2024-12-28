@@ -150,12 +150,12 @@ const EditProfile = () => {
             >
                 <View style={Styles.modalContainer}>
                     <View style={Styles.modalContent}>
-                    <Image style={Styles.Modalimage} source={require('../../images/Modalimage.png')}/>
+                        <Image style={Styles.Modalimage} source={require('../../images/Modalimage.png')} />
 
                         <Text style={Styles.modalText}>Added Sucessfully</Text>
                         <Text style={Styles.Loremtextstyle}>Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam,{"\n"}   purusorem ipsum dolor sit amet, consectetur adipiscing elit ut{"\n"}</Text>
                         <Text style={Styles.Loremtextstyle}>aliquam,.</Text>
-                        <CustomButton tittle='close' customStyle={Styles.Buttonstyle}onPress={() => setModalVisible(false)} />
+                        <CustomButton tittle='close' customStyle={Styles.Buttonstyle} onPress={() => setModalVisible(false)} />
                     </View>
                 </View>
             </Modal>
@@ -166,7 +166,7 @@ const EditProfile = () => {
 export default EditProfile;
 
 const styles = StyleSheet.create({
-  
-   
-  
+
+
+
 });
