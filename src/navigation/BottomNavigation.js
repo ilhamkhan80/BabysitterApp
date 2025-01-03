@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { Image, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import Colors from '../themes/Colors'
@@ -14,13 +14,18 @@ import ChatScreen from '../screens/ChatScreen/Index'
 const BottomNavigation = () => {
     const Bottom=createBottomTabNavigator()
   return (
-  <Bottom.Navigator screenOptions={{headerShown:false,tabBarActiveTintColor:Colors.Blue,tabBarInactiveTintColor:Colors.gray}}>
+  <Bottom.Navigator screenOptions={{headerShown:false,tabBarActiveTintColor:Colors.Blue,tabBarShowLabel: false,tabBarInactiveTintColor:Colors.gray}}>
     <Bottom.Screen name='Home'
     component={HomeScreen}
     options={{tabBarIcon:({focused})=>{
         return(
             <View>
-                <Icon name='home-outline' type='Ionicons' color={focused?Colors.Blue:Colors.gray}/>
+                <Image  style={[
+              { width: 24, height: 22 },
+              { tintColor: focused ? Colors.Blue : Colors.gray },
+            ]}
+            source={require('../images/home.png')}
+          />
             </View>
         )
     }}}/>
@@ -29,7 +34,10 @@ const BottomNavigation = () => {
     options={{tabBarIcon:({focused})=>{
         return(
             <View>
-         <Icon name='hearto' type='AntDesign' color={focused?Colors.Blue:Colors.gray}/>
+                <Image  style={[
+              { width: 24, height: 19.99 },
+              { tintColor: focused ? Colors.Blue : Colors.gray },
+            ]}source={require('../images/grayheart.png')}/>
             </View>
         )
     }}}/>
@@ -38,7 +46,10 @@ const BottomNavigation = () => {
     options={{tabBarIcon:({focused})=>{
         return(
             <View>
-         <Icon name='chatbox-outline' type='Ionicons' color={focused?Colors.Blue:Colors.gray}/>
+                <Image  style={[
+              { width: 20, height: 20 },
+              { tintColor: focused ? Colors.Blue : Colors.gray },
+            ]}source={require('../images/chat.png')}/> 
             </View>
         )
     }}}/>
@@ -47,8 +58,11 @@ const BottomNavigation = () => {
     options={{tabBarIcon:({focused})=>{
         return(
             <View>
-         <Icon name='user' type='AntDesign' color={focused?Colors.Blue:Colors.gray}/>
-            </View>
+ <Image  style={[
+              { width: 18, height: 22 },
+              { tintColor: focused ? Colors.Blue : Colors.gray },
+            ]}source={require('../images/grayuser.png')}/>         
+               </View>
         )
     }}}/>
 

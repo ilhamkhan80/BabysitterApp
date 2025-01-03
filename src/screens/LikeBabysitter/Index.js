@@ -4,6 +4,7 @@ import Styles from '../LikeBabysitter/Style'
 import Icon from '../../themes/Icons'
 import theme from '../../utils/Constants'
 import { useNavigation } from '@react-navigation/native'
+import { Colors } from 'react-native/Libraries/NewAppScreen'
 
 const LikeBabysitter = () => {
     const navigation = useNavigation()
@@ -57,40 +58,42 @@ const LikeBabysitter = () => {
 
     return (
         <View style={Styles.View}>
-            <View style={Styles.LikeBbabysitter}>
-                <View style={Styles.Likebaby} >
-                    <Text style={Styles.likebabysitter} >Likes Babysitter</Text>
-                </View>
-                <TouchableOpacity onPress={() => navigation.navigate('Notifications')} >
-                    <Icon name="bell" type="Feather" color="black" size={23} />
-
+            <View style={Styles.LikeBabysitter}>
+                <Text style={Styles.LikeBabysitterText}>
+                    Likes Babysitter
+                </Text>
+                <TouchableOpacity onPress={() => navigation.navigate('Notifications')} style={{ position: 'absolute', right: 20,top:42 }}>
+                    <Image style={{width:18,height:20}} source={require('../../images/bell2.png')}/>
                 </TouchableOpacity>
             </View>
+            <View style={{marginTop:20}}>
             <FlatList data={persons}
                 scrollEnabled={true}
                 renderItem={({ item }) => {
                     return (
-                        <View style={Styles.liststyle}>
-                            <View style={Styles.viewstyle}>
+                        <View style={Styles.ListStyle}>
+                            <View style={Styles.ViewStyle}>
                                 <TouchableOpacity>
                                     <Image source={item.Image} />
                                 </TouchableOpacity>
 
                                 <View style={Styles.iconstyle}>
-                                    <Icon name='heart' color='red' CustomStyle={{ alignSelf: 'flex-end' }} />
-                                    <Text style={Styles.Namestyle}>{item.name}</Text>
-                                    <Text style={Styles.margin}>{item.discription}</Text>
-                                    <View style={{ flexDirection: 'row' }}>
-                                        <Icon name='star' color='yellow' />
-                                        <Text>4.7</Text>
-                                        <Text>  (132 Reviews)</Text>
-                                        <Text style={{ marginLeft: 20 }}>    {item.price}</Text>
+                                    <Image style={Styles.Imagestyle}source={require('../../images/heart.png')}/>
+                                    <Text style={Styles.NameStyle}>{item.name}</Text>
+                                    <Text style={Styles.Margin}>{item.discription}</Text>
+                                    <View style={{ flexDirection: 'row',marginTop:10 }}>
+                                        <Image style={{width:15.86,height:15,marginLeft:10}}source={require('../../images/Star.png')}/>
+                                        <Text style={Styles.Rating}>4.7</Text>
+                                        <Text style={Styles.Reviews}>(132 Reviews)</Text>
+                                        <Text style={Styles.Price}> {item.price}</Text>
                                     </View>
                                 </View>
                             </View>
                         </View>
+                    
                     )
                 }} />
+                </View>
         </View>
     )
 }

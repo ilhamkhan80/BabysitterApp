@@ -1,15 +1,17 @@
-import { Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { Image, ImageBackground, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import Styles from '../ConfirmBooking/Style'
 import Icon from '../../themes/Icons'
 import Colors from '../../themes/Colors'
 import CustomButton from '../../components/CustomButton'
 import { useNavigation } from '@react-navigation/native'
+import theme from '../../utils/Constants'
 const ConfirmBooking = () => {
   const navigation = useNavigation()
   return (
     <ScrollView style={Styles.Flex}>
-      <View style={Styles.iconstyle}>
+      
+      <View style={Styles.iconStyle}>
         <TouchableOpacity onPress={navigation.goBack}>
           <Icon name="arrowleft" type="AntDesign" color="black" size={25} />
         </TouchableOpacity>
@@ -20,66 +22,72 @@ const ConfirmBooking = () => {
       </View>
 
       <View>
-        <Text style={Styles.Textstyle}>Nemo enim ipsam
+        <Text style={Styles.TextStyle}>Nemo enim ipsam
         </Text>
       </View>
-      <View style={Styles.Dateview}>
+      <ImageBackground resizeMode='stretch' style={{ width: '100%',marginTop:40 }} source={require('../../images/background.png')}>
+      <View style={{marginTop:30}}>
+      <View style={Styles.DateView}>
         <View>
-          <Text style={Styles.Selecteddate}>Date & Time</Text>
+          <Text style={Styles.SelectedDate}>Date & Time</Text>
           <Text style={Styles.Change}>From 17 Auguest to 19 August </Text>
           <Text style={Styles.Change}>07:00 Am To 12:00 PM</Text>
         </View>
-        <Text style={Styles.Change}>Change</Text>
+        <Text style={Styles.Change1}>Change</Text>
       </View>
       <View style={Styles.BabySitter} >
-        <View style={Styles.Babystyle}>
-          <Text style={Styles.Selecteddate}>Baby Sitter Name</Text>
-          <Text style={Styles.Change}>Change</Text>
+        <View style={Styles.BabyStyle}>
+          <Text style={Styles.SelectedDate}>Baby Sitter Name</Text>
+          <Text style={Styles.Change1}>Change</Text>
         </View>
 
-        <View style={Styles.Nemostyle}>
-          <Text style={Styles.Change}>  Nemo enim ipsam
+        <View style={Styles.NemoStyle}>
+          <Text style={[Styles.Change,{marginLeft:20}]}>Nemo enim ipsam
           </Text>
-          <Image style={Styles.Girlimage} source={require('../../images/girl.png')} />
+          <Image style={Styles.GirlImage} source={require('../../images/girl.png')} />
         </View>
 
       </View>
-      <View style={Styles.Dateview}>
+      <View style={Styles.DateView}>
         <View>
-          <Text style={Styles.Selecteddate}>Address</Text>
+          <Text style={Styles.SelectedDate}>Address</Text>
           <Text style={Styles.Change}>Nemo enim ipsam </Text>
           <Text style={Styles.Change}>aspernatur aut odit aut fugit,</Text>
           <Text style={Styles.Change}>consequuntur ma</Text>
         </View>
-        <Text style={Styles.Change}>Change</Text>
+        <Text style={Styles.Change1}>Change</Text>
       </View>
       <View style={Styles.BabySitter} >
-        <View style={Styles.Babystyle}>
-          <Text style={Styles.Selecteddate}>Payment Method</Text>
-          <Text style={Styles.Change}>Change</Text>
+        <View style={Styles.BabyStyle}>
+          <Text style={Styles.SelectedDate}>Payment Method</Text>
+          <Text style={Styles.Change1}>Change</Text>
         </View>
 
-        <View style={Styles.Nemostyle}>
-          <View style={Styles.Flexstyle}>
-            <Image style={{ width: 16, height: 14, marginLeft: 13 }} source={require('../../images/Vectoricon.png')} />
-            <Text>*********** 1289
+        <View style={Styles.NemoStyle}>
+          <View style={Styles.FlexStyle}>
+            <Image style={Styles.Payment} source={require('../../images/Vectoricon.png')} />
+            <Text style={Styles.Textstyle}>*********** 1289
             </Text>
           </View>
-          <Image style={Styles.Paymentstyle} source={require('../../images/Payment.png')} />
+          <Image style={Styles.PaymentStyle} source={require('../../images/Payment.png')} />
         </View>
 
       </View>
+
+      </View>
+
       <View>
-        <View style={Styles.Totalstyle}>
-          <View style={Styles.Flexdirection}>
+        <View style={Styles.TotalStyle}>
+          <View style={Styles.FlexDirection}>
             <Text style={Styles.Total}>Total</Text>
 
             <Text style={Styles.Text55}>55$</Text>
           </View>
-          <CustomButton tittle='Proceed to Pay' customStyle={Styles.Buttonstyle} />
+          <CustomButton tittle='PROCCED TO PAY' customstyle={{fontFamily:theme.BOLD}}  customStyle={Styles.ButtonStyle} />
         </View>
 
       </View>
+      </ImageBackground>
     </ScrollView>
   )
 }

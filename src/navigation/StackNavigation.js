@@ -43,6 +43,7 @@ const StackNavigation = () => {
         <Stack.Screen name='ChildInfo' component={Childinfo}/>
         <Stack.Screen name='BookNow' component={BookNow}/>
         <Stack.Screen name='ConfirmBooking' component={ConfirmBooking}/>
+        <Stack.Screen name='Home' component={BottomNavigation}/>
       </Stack.Navigator>
     </NavigationContainer>
   )

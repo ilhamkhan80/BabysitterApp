@@ -8,6 +8,7 @@ import {
     View,
     Modal,
     Button,
+    ImageBackground,
 } from 'react-native';
 import Icon from '../../themes/Icons';
 import Styles from '../EditProfile/Style';
@@ -57,7 +58,7 @@ const EditProfile = () => {
                 color: '#000',
             },
             size: 25,
-            color: selectedId === '1' ? '#3A4DA0' : '#d3d3d3',
+            color: selectedId === '1' ? '#3A4DA0' : '#3A4DA0',
             selected: selectedId === '1',
             containerStyle: {
                 flexDirection: 'row',
@@ -67,8 +68,8 @@ const EditProfile = () => {
                 borderColor: '#d3d3d3',
                 borderWidth: 1,
                 borderRadius: 8,
-                padding: 10,
-                width: 160,
+                padding: 12,
+                width: '40%',
             },
         },
         {
@@ -79,9 +80,10 @@ const EditProfile = () => {
                 fontSize: 16,
                 fontWeight: 'bold',
                 color: '#000',
+
             },
             size: 25,
-            color: selectedId === '2' ? '#3A4DA0' : '#d3d3d3',
+            color: selectedId === '2' ? '#3A4DA0' : '#3A4DA0',
             selected: selectedId === '2',
             containerStyle: {
                 flexDirection: 'row',
@@ -91,8 +93,9 @@ const EditProfile = () => {
                 borderColor: '#d3d3d3',
                 borderWidth: 1,
                 borderRadius: 8,
-                padding: 10,
-                width: 160,
+                padding: 12,
+                width: '40%',
+
             },
         },
     ], [selectedId]);
@@ -102,34 +105,39 @@ const EditProfile = () => {
     };
 
     return (
-        <ScrollView style={{ padding: 10 }}>
-            <View style={{ flex: 1 }}>
-                <Image style={Styles.ImageStyle} source={require('../../images/Myprofile.png')} />
-            </View>
+        <ScrollView  >
+        <ImageBackground resizeMode='conatin' style={{width:'100%'}} source={require('../../images/Myprofile.png')}>
+
+        
             <View style={Styles.Icon}>
-                <TouchableOpacity onPress={navigation.goBack}>
+                <TouchableOpacity style={{marginLeft:10}} onPress={navigation.goBack}>
                     <Icon name="arrowleft" type="AntDesign" color="black" size={20} />
                 </TouchableOpacity>
+                 <View style={{marginRight:20}}>
                 <Icon name="bell" type="Feather" color="gray" size={23} />
+                </View>
+
             </View>
             <View style={Styles.MyProfile}>
-                <Text style={Styles.Profilestyle}>Edit Profile</Text>
+                <Text style={Styles.ProfileStyle}>Edit Profile</Text>
             </View>
             <View>
                 <Image style={Styles.Image} source={selectedImage ? { uri: selectedImage } : require('../../images/image1.png')} />
                 <TouchableOpacity onPress={openImagePicker}>
-                    <Image style={Styles.Imagestyle} source={require('../../images/Camera.png')} />
+                    <Image style={Styles.ImageStyleAlt} source={require('../../images/Camera.png')} />
                 </TouchableOpacity>
             </View>
-            <CustomInput placeholder="Name" value={username} onChangeText={setUserName} />
-            <CustomInput placeholder="E-mail" value={Email} onChangeText={setEmail} />
-            <CustomInput placeholder="Date Of Birth" Icon="true" name="calendar" size={25} type="Feather" />
-            <CustomInput placeholder="Location" value={Location} onChangeText={setLocation} />
-            <CustomInput placeholder="Phone Number" />
-            <View style={Styles.margin}>
-                <Text style={Styles.Experiencetxt}>Gender</Text>
+            <View style={{justifyContent:'center',alignItems:'center',alignSelf:'center'}}>
+            <CustomInput placeholder="Name" value={username} onChangeText={setUserName} customstyle={Styles.CustomStyle}/>
+            <CustomInput placeholder="E-mail" value={Email} onChangeText={setEmail} customstyle={Styles.CustomStyle}/>
+            <CustomInput placeholder="Date Of Birth" Icon="true" name="calendar" size={20} type="Feather" customstyle={Styles.CustomStyle} />
+            <CustomInput placeholder="Location"  value={Location} onChangeText={setLocation} customstyle={Styles.CustomStyle} />
+            <CustomInput placeholder="Phone Number" customstyle={Styles.CustomStyle}/>
             </View>
-            <View style={Styles.radioGroupContainer}>
+            <View style={Styles.Margin}>
+                <Text style={Styles.ExperienceText}>Gender</Text>
+            </View>
+            <View style={Styles.RadioGroupContainer}>
                 <RadioGroup
                     radioButtons={radioButtons}
                     onPress={setSelectedId}
@@ -148,18 +156,21 @@ const EditProfile = () => {
                 animationType="slide"
                 onRequestClose={() => setModalVisible(false)}
             >
-                <View style={Styles.modalContainer}>
-                    <View style={Styles.modalContent}>
-                        <Image style={Styles.Modalimage} source={require('../../images/Modalimage.png')} />
+                <View style={Styles.ModalContainer}>
+                    <View style={Styles.ModalContent}>
+                        <Image style={Styles.ModalImage} source={require('../../images/Modalimage.png')} />
 
-                        <Text style={Styles.modalText}>Added Sucessfully</Text>
-                        <Text style={Styles.Loremtextstyle}>Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam,{"\n"}   purusorem ipsum dolor sit amet, consectetur adipiscing elit ut{"\n"}</Text>
-                        <Text style={Styles.Loremtextstyle}>aliquam,.</Text>
-                        <CustomButton tittle='close' customStyle={Styles.Buttonstyle} onPress={() => setModalVisible(false)} />
+                        <Text style={Styles.ModalText}>Update Sucessfully</Text>
+                        <View style={{width:347}}>
+                        <Text style={Styles.LoremTextStyle}>Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam,{"\n"}   purusorem ipsum dolor sit amet, consectetur adipiscing elit ut{"\n"}</Text>
+                        <Text style={Styles.LoremTextStyle1}>aliquam,.</Text>
+                        </View>
+                        <CustomButton tittle='close' customStyle={Styles.ButtonStyle} onPress={() => setModalVisible(false)} />
                     </View>
                 </View>
             </Modal>
-        </ScrollView>
+            </ImageBackground>
+            </ScrollView>
     );
 };
 

@@ -1,15 +1,13 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { FlatList, Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import Icon from '../../themes/Icons';
-import CustomInput from '../../components/CustomInput';
 import Styles from '../HomeScreen/Style';
 import theme from '../../utils/Constants';
 import { useNavigation } from '@react-navigation/native';
 import MapView, { Marker } from 'react-native-maps';
 import RBSheet from 'react-native-raw-bottom-sheet';
-
 const HomeScreen = () => {
-  const refRBSheet = useRef();
+
   const navigation = useNavigation();
   const persons = [
     {
@@ -52,24 +50,16 @@ const HomeScreen = () => {
 
   return (
     <View style={Styles.Mainview}>
-      <View style={Styles.Buttonstyle}>
-        <Icon name='search1' type='AntDesign' color='gray' size={20} />
-        <TextInput style={Styles.Inputstyle} placeholder='Search' />
-        <TouchableOpacity onPress={() => navigation.navigate('FilterScreen')}
-        >
-          <Image style={{ height: 17, width: 18 }} source={require('../../images/Icon.png')} />
-        </TouchableOpacity>
-      </View>
-
-      <View >
+      <View>
         <MapView
+
           initialRegion={{
             latitude: 37.78825,
             longitude: -122.4324,
             latitudeDelta: 0.0922,
             longitudeDelta: 0.0421,
           }}
-          style={{ height: 220, width: '100%' }}
+          style={{ height: 300, width: '100%' }}
         >
           <Marker
             coordinate={{
@@ -78,75 +68,62 @@ const HomeScreen = () => {
             }}
           />
         </MapView>
+
+        <View style={Styles.overlay}>
+          <View style={Styles.inputContainer}>
+            <Image style={Styles.Imagestyle} source={require('../../images/search.png')} />
+            <TextInput
+              style={Styles.inputStyle}
+              placeholder="Search..."
+            />
+            <TouchableOpacity onPress={() => navigation.navigate('FilterScreen')}>
+              <Image
+                style={Styles.iconStyle}
+                source={require('../../images/Icon.png')}
+              />
+            </TouchableOpacity>
+          </View>
+        </View>
       </View>
-      <View style={Styles.mainview}>
-        <Text style={Styles.babysitterstyle}>Babysitters near you</Text>
-        <TouchableOpacity onPress={() => refRBSheet.current.open()}>
+
+      <View style={Styles.Linestyle} />
+      <View style={Styles.Babysitter}>
+        <View style={Styles.mainview}>
+          <Text style={Styles.babysitterstyle}>Babysitters near you</Text>
+        </View>
+        <TouchableOpacity>
           <Text style={Styles.txtstyle}>See All</Text>
         </TouchableOpacity>
       </View>
-      <RBSheet
-        ref={refRBSheet}
-        height={450}
-        useNativeDriver={true}
-        customStyles={{
-          wrapper: {
-            backgroundColor: 'transparent',
-          },
-          draggableIcon: {
-            backgroundColor: 'white',
-          },
-        }}
-        customModalProps={{
-          animationType: 'slide',
-          statusBarTranslucent: true,
-        }}
-        customAvoidingViewProps={{
-          enabled: false,
-        }} >
-        <TouchableOpacity onPress={() => refRBSheet.current.close()}>
-          <View
-            style={Styles.Linestyle}
-          />
-        </TouchableOpacity>
-        <View style={Styles.Babysitter}>
-          <View style={Styles.mainview}>
-            <Text style={Styles.babysitterstyle}>Babysitters near you</Text>
-          </View>
-          <TouchableOpacity onPress={() => refRBSheet.current.open()}>
-            <Text style={Styles.txtstyle}>See All</Text>
-          </TouchableOpacity>
-        </View>
-        <FlatList
-          data={persons}
-          scrollEnabled={true}
-          renderItem={({ item }) => {
-            return (
-              <View style={Styles.liststyle}>
+      <FlatList
+        data={persons}
+        scrollEnabled={true}
+        renderItem={({ item }) => {
+          return (
+            <View style={Styles.liststyle}>
 
 
-                <View style={Styles.viewstyle}>
-                  <TouchableOpacity onPress={() => navigation.navigate('ProfileScreen')}>
-                    <Image source={item.Image} />
-                  </TouchableOpacity>
-                  <View style={Styles.iconstyle}>
-                    <Icon name="heart" color="red" CustomStyle={{ alignSelf: 'flex-end' }} />
-                    <Text style={{ fontFamily: theme.BOLD }}>{item.name}</Text>
-                    <Text>{item.discription}</Text>
-                    <View style={{ flexDirection: 'row' }}>
-                      <Icon name="star" color="yellow" />
-                      <Text>4.7</Text>
-                      <Text> (132 Reviews)</Text>
-                      <Text style={{ marginLeft: 20 }}> {item.price}</Text>
-                    </View>
+              <TouchableOpacity style={Styles.viewstyle} onPress={() => navigation.navigate('ProfileScreen')}>
+                <Image source={item.Image} />
+                <View style={Styles.iconstyle}>
+                  <Icon name="heart" color="#FF5166" CustomStyle={{ alignSelf: 'flex-end' }} />
+                  <Text style={{ fontFamily: theme.BOLD }}>{item.name}</Text>
+                  <Text style={Styles.discription}>{item.discription}</Text>
+                  <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                    <Image style={{ height: 15, width: 15 }} source={require('../../images/Star.png')} />
+                    <Text style={{ fontFamily: theme.BOLD, marginLeft: 10 }}>4.7</Text>
+                    <Text style={Styles.Reviews}>(132 Reviews)</Text>
+                    <Text style={Styles.Price}>{item.price}</Text>
                   </View>
                 </View>
-              </View>
-            );
-          }}
-        />
 
-      </RBSheet>
+              </TouchableOpacity>
+
+
+            </View>
+          );
+        }}
+      />
     </View>
   );
 };

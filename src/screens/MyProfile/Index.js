@@ -1,4 +1,4 @@
-import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { Image, ImageBackground, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import Icon from '../../themes/Icons'
 import Styles from '../MyProfile/Style'
@@ -16,11 +16,12 @@ const MyProfile = () => {
             <View style={{flex:1}}>
                 <Image style={Styles.ImageStyle} source={require('../../images/Myprofile.png')}/>
             </View>
+            <ImageBackground resizeMode='conatin' style={{height:750,width:'100%'}} source={require('../../images/Myprofile.png')}>
             <View style={Styles.Bell}>
                 <Icon name="bell" type="Feather" color="gray" size={23} />
             </View>
             <View style={Styles.MyProfile}>
-                <Text style={Styles.Profilestyle} >
+                <Text style={Styles.ProfileStyle}>
                     My Profile
                 </Text>
             </View>
@@ -30,62 +31,68 @@ const MyProfile = () => {
                 <Image style={Styles.Image} source={require('../../images/image1.png')} />
                 )}
             </View>
-            <View style={Styles.Iconstyle}>
+            <View style={Styles.IconStyle}>
                 <Text style={Styles.Anaholmes}>
                 {username?username:'Ana Holmes'}
                 </Text>
                 <TouchableOpacity onPress={()=>navigation.navigate('EditProfile')}>
-                    <Icon name='pen' type='FontAwesome5' size={15} color={Colors.purple} />
+                 <Image style={{width:12,height:12,left:10}}source={require('../../images/edit.png')}/>
                 </TouchableOpacity>
 
             </View>
-            <View style={Styles.Gmailstyle}>
-                <Text >{Email?Email:"Ana Holmes12@gmal.com" } </Text>
+            <View style={Styles.GmailStyle}>
+                <Text style={{fontWeight:400,fontSize:14}} >{Email?Email:"Ana Holmes12@gmal.com" } </Text>
 
 
             </View>
-            <View style={Styles.Iconstyle}>
-                    <Icon name='location' type='Ionicons' size={15} color={Colors.lightgray} />
+            <View style={Styles.IconStyle}>
+                <Image style={{width:11,height:13}} source={require('../../images/location2.png')}/>
                 <Text style={Styles.Location}>{Location?Location:'cairo,Egypt'}</Text>
                
 
             </View>
+
+        <View style={{marginTop:20}}>
             <View style={Styles.Setting}>
-            <View style={Styles.Imagestyle}>
-                <Image style={Styles.Lockstyle}source={require('../../images/Setting.png')}/>
-                <Text style={Styles.Managebooking}>Manage Booking</Text>
+            <View style={Styles.ImageStyle}>
+                <Image style={Styles.LockStyle}source={require('../../images/Setting.png')}/>
+                <Text style={Styles.ManageBooking}>Manage Booking</Text>
                 <TouchableOpacity>
                     <Icon name='arrowright' type='AntDesign' color='black' size={14}/>
                 </TouchableOpacity>
             </View>
             </View>
             <View style={Styles.Setting}>
-            <View style={Styles.Imagestyle}>
-                <Image style={Styles.Lockstyle}source={require('../../images/User.png')}/>
-                <Text style={Styles.Managebooking}>Add A Child info</Text>
+            <View style={Styles.ImageStyle}>
+                <Image style={Styles.LockStyle}source={require('../../images/User.png')}/>
+                <Text style={Styles.ManageBooking}>Add A Child info</Text>
                 <TouchableOpacity onPress={()=>navigation.navigate('ChildInfo')}>
                     <Icon name='arrowright' type='AntDesign' color='black' size={14}/>
                 </TouchableOpacity>
             </View>
             </View>
             <View style={Styles.Setting}>
-            <View style={Styles.Imagestyle}>
-                <Image style={Styles.Lockstyle}source={require('../../images/Bell.png')}/>
-                <Text style={Styles.Managebooking}> Notification</Text>
+            <View style={Styles.ImageStyle}>
+                <Image style={Styles.LockStyle}source={require('../../images/Bell.png')}/>
+                <Text style={Styles.ManageBooking}>Notification</Text>
                 <TouchableOpacity>
                     <Icon name='arrowright' type='AntDesign' color='black'size={14}/>
                 </TouchableOpacity>
             </View>
             </View>
             <View style={Styles.Setting}>
-            <View style={Styles.Imagestyle}>
-                <Image style={Styles.Lockstyle}source={require('../../images/Lock.png')}/>
-                <Text style={Styles.Managebooking}>Password</Text>
+            <View style={Styles.ImageStyle}>
+                <Image style={Styles.LockStyle}source={require('../../images/Lock.png')}/>
+                <Text style={Styles.ManageBooking}>Password</Text>
                 <TouchableOpacity>
                     <Icon name='arrowright' type='AntDesign' color='black' size={14}/>
                 </TouchableOpacity>
             </View>
             </View>
+
+            </View>
+
+            </ImageBackground>
         </View>
     )
 }

@@ -7,7 +7,7 @@ const CustomCheckbox = ({ isChecked, onPress, label }) => {
   return (
     <TouchableOpacity onPress={onPress} style={styles.container}>
       <View style={[styles.checkbox, isChecked && styles.checked]}>
-        {isChecked && <Icon name="cross" type="Entypo" color="black" size={16} />}
+        {isChecked && <Icon name="cross" type="Entypo" color={Colors.purple} size={16} />}
       </View>
       {label && <Text style={styles.label}>{label}</Text>}
     </TouchableOpacity>

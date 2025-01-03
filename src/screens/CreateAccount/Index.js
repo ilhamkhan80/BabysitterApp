@@ -24,43 +24,43 @@ const CreateAccount = () => {
     };
 
     return (
-        <View>
+        <View style={{flex:1,backgroundColor:'white'}}>
             <View style={Styles.view}>
                 <Text style={Styles.text}>Create account</Text>
             </View>
             <View >
-                <Text style={Styles.txtstyle}>
+                <Text style={Styles.txtStyle}>
                     Lorem ipsum dolor sit amet, consectetur
                 </Text>
-                <Text style={Styles.txtstyle}>adipiscing elit  sit amet, consectetur.</Text>
+                <Text style={Styles.txtStyle}>adipiscing elit  sit amet, consectetur.</Text>
             </View>
-
-            <View style={Styles.viewstyle}>
-                <Text style={Styles.textstyle}>
+            <View style={{marginTop:10}}>
+            <View style={Styles.viewStyle}>
+                <Text style={Styles.textStyle}>
                     Your email
                 </Text>
                 <View>
-                    <CustomInput placeholder='Email Address' Icon='true' type='AntDesign' name='check' color='#3A4DA0' />
+                    <CustomInput placeholder='Email Address'  />
                 </View>
             </View>
-            <View style={Styles.viewstyle}>
-                <Text style={Styles.textstyle}>
+            <View style={Styles.viewStyle}>
+                <Text style={Styles.textStyle}>
                     Password
                 </Text>
                 <View  >
                     <CustomInput placeholder='Password' Icon="true" color='#3A4DA0'
-                        name={isPasswordVisible ? 'eye' : 'eye-with-line'} size={20} type="Entypo"
-                        onPressIcon={() => setIsPasswordVisible(!isPasswordVisible)}
+            name={isPasswordVisible ? 'eye-outline' : 'eye-off-outline'} size={22} type="Ionicons"
+            onPressIcon={() => setIsPasswordVisible(!isPasswordVisible)}
                         secureTextEntry={!isPasswordVisible}
                     />
 
                 </View>
             </View>
-            <View style={Styles.viewstyle}>
-                <Text style={Styles.textstyle}>
+            <View style={Styles.viewStyle}>
+                <Text style={Styles.textStyle}>
                     Phone Number
                 </Text>
-                <View style={Styles.Buttonstyle}>
+                <View style={Styles.ButtonStyleAlt}>
                     <CountryPicker
                         countryCode={countryCode}
                         withFlag={true}
@@ -70,15 +70,18 @@ const CreateAccount = () => {
                     <Text style={styles.callingCode}>
                         +{country?.callingCode}
                     </Text>
-                    <TextInput style={Styles.Inputstyle} placeholder='Phone Number' keyboardType="phone-pad"
+                    <View  >
+                    <TextInput style={Styles.InputStyle} placeholder='Phone Number' keyboardType="phone-pad"
                         onChangeText={(input) => setPhone(input)}
                         value={phone} />
+                        </View>
                 </View>
 
             </View>
-            <CustomButton tittle='create account' customStyle={Styles.buttonstyle} onPress={() => navigation.navigate('BottomScreen')} />
+            </View>
+            <CustomButton tittle='CREATE ACCOUNT' customstyle={{fontFamily:theme.BOLD}} customStyle={Styles.buttonStyle} onPress={() => navigation.navigate('BottomScreen')} />
             <View>
-                <Text style={Styles.googlestyle}>Or</Text>
+                <Text style={Styles.googleStyle}>Or</Text>
             </View>
             <View>
                 <TouchableOpacity style={Styles.google}>
@@ -92,16 +95,17 @@ const CreateAccount = () => {
                 <TouchableOpacity style={Styles.facebook}>
                     <Image source={require('../../images/facebook.png')} />
                     <Text style={{ color: Colors.White }}>
-                        facebook
+                        Facebook
                     </Text>
                 </TouchableOpacity>
             </View>
-            <View style={Styles.textStyle}>
-                <Text >You have an account?   </Text>
-                <TouchableOpacity>
+            <View style={Styles.textStyleAlt}>
+                <Text>You have an account?</Text>
+                <TouchableOpacity onPress={()=>navigation.navigate('Login')}>
                     <Text style={{ color: Colors.Blue, fontFamily: theme.BOLD }}> Log in</Text>
                 </TouchableOpacity>
             </View>
+           
         </View>
     )
 }

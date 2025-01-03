@@ -11,14 +11,14 @@ const Notifications = () => {
 
     return (
 
-        <ScrollView >
-            <View style={Styles.Iconstyle}>
-                <TouchableOpacity onPress={navigation.goBack}>
+        <ScrollView style={{marginTop:30}} >
+            <View style={Styles.IconStyle}>
+                <TouchableOpacity  onPress={navigation.goBack}>
                     <Icon name='arrow-back-outline' type='Ionicons' color='black' />
                 </TouchableOpacity>
-                <Text style={Styles.Notificationstyle}>Notification</Text>
+                <Text style={Styles.NotificationStyle}>Notification</Text>
             </View>
-            <View style={Styles.Todaystyle}>
+            <View style={Styles.TodayStyle}>
                 <Text style={Styles.Today}>Today</Text>
             </View>
             <View style={Styles.card}>
@@ -29,12 +29,12 @@ const Notifications = () => {
                     />
 
                     <View style={Styles.margin}>
-                        <View style={Styles.Txtstyle}>
-                            <Text style={Styles.name}>Vilma Nunez</Text>
+                        <View style={Styles.TxtStyle}>
+                            <Text style={Styles.name}> Vilma Nunez</Text>
                             <Text style={Styles.time}>2h ago</Text>
                         </View>
 
-                        <Text style={Styles.notificationText}>liked your profile</Text>
+                        <Text style={Styles.notificationText}> liked your profile</Text>
                     </View>
                 </View>
             </View>
@@ -46,7 +46,7 @@ const Notifications = () => {
                     />
 
                     <View style={Styles.margin}>
-                        <View style={Styles.Txtstyle}>
+                        <View style={Styles.TxtStyle}>
                             <Text style={Styles.name}>Vilma Nunez</Text>
                             <Text style={Styles.time}>2h ago</Text>
                         </View>
@@ -64,7 +64,7 @@ const Notifications = () => {
                     />
 
                     <View style={Styles.margin}>
-                        <View style={Styles.Txtstyle}>
+                        <View style={Styles.TxtStyle}>
                             <Text style={Styles.name}>Vilma Nunez</Text>
                             <Text style={Styles.time}>2h ago</Text>
                         </View>
@@ -73,7 +73,7 @@ const Notifications = () => {
                     </View>
                 </View>
             </View>
-            <View style={Styles.Todaystyle}>
+            <View style={Styles.TodayStyle}>
                 <Text style={Styles.Today}>This Week</Text>
             </View>
             <View style={Styles.card}>
@@ -84,7 +84,7 @@ const Notifications = () => {
                     />
 
                     <View style={Styles.margin}>
-                        <View style={Styles.Txtstyle}>
+                        <View style={Styles.TxtStyle}>
                             <Text style={Styles.name}>Vilma Nunez</Text>
                             <Text style={Styles.time}>2h ago</Text>
                         </View>
@@ -100,7 +100,7 @@ const Notifications = () => {
                     />
 
                     <View style={Styles.margin}>
-                        <View style={Styles.Txtstyle}>
+                        <View style={Styles.TxtStyle}>
                             <Text style={Styles.name}>Vilma Nunez</Text>
                             <Text style={Styles.time}>2h ago</Text>
                         </View>
@@ -116,7 +116,7 @@ const Notifications = () => {
                     />
 
                     <View style={Styles.margin}>
-                        <View style={Styles.Txtstyle}>
+                        <View style={Styles.TxtStyle}>
                             <Text style={Styles.name}>Vilma Nunez</Text>
                             <Text style={Styles.time}>2h ago</Text>
                         </View>
@@ -132,7 +132,7 @@ const Notifications = () => {
                     />
 
                     <View style={Styles.margin}>
-                        <View style={Styles.Txtstyle}>
+                        <View style={Styles.TxtStyle}>
                             <Text style={Styles.name}>Vilma Nunez</Text>
                             <Text style={Styles.time}>2h ago</Text>
                         </View>

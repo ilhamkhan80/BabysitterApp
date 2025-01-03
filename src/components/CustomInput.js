@@ -34,9 +34,10 @@ const CustomInput = (props) => {
 export default CustomInput
 
 const styles = StyleSheet.create({
-  buttonstyle:{    marginTop: 10,
+  buttonstyle:{    
+    marginTop: 10,
     borderWidth: 1,
-    borderColor: '#96A0A6',
+    borderColor: '#0000001A',
     borderRadius: 12,
     flexDirection: 'row', 
     alignItems: 'center',

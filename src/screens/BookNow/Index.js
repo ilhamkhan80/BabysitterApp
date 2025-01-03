@@ -1,4 +1,4 @@
-import { Image, StyleSheet, Text, TouchableOpacity, View, ScrollView, TextInput } from 'react-native';
+import { Image, StyleSheet, Text, TouchableOpacity, View, ScrollView, TextInput, ImageBackground } from 'react-native';
 import React, { useMemo, useState } from 'react';
 import Styles from '../BookNow/Style';
 import Icon from '../../themes/Icons';
@@ -7,12 +7,20 @@ import Colors from '../../themes/Colors';
 import { RadioGroup } from 'react-native-radio-buttons-group';
 import CustomButton from '../../components/CustomButton';
 import { useNavigation } from '@react-navigation/native';
+import theme from '../../utils/Constants';
 const BookNow = () => {
   const navigation = useNavigation()
   const [selectedDate, setSelectedDate] = useState('');
+  const [selectedButton, setSelectedButton] = useState('oneTime');
+  const [selectedDay, setSelectedDay] = useState('Morning');
+
+
   const [selectedId, setSelectedId] = useState(null);
-
-
+  const [markedDates, setMarkedDates] = useState({
+    '2025-01-15': { startingDay: true, color: '#D6DFF2', textColor: 'black' },
+    '2025-01-16': { color: '#D6DFF2', textColor: 'black' },
+    '2025-01-17': { endingDay: true, color: '#D6DFF2', textColor: 'black' },
+  });
   const onDayPress = (day) => {
     setSelectedDate(day.dateString);
     console.log('Selected Date:', day.dateString);
@@ -21,7 +29,6 @@ const BookNow = () => {
     {
       id: '1',
       label: 'Selected',
-      value: 'male',
       labelStyle: {
         fontSize: 11,
         fontWeight: 'bold',
@@ -35,6 +42,7 @@ const BookNow = () => {
         alignItems: 'center',
         justifyContent: 'center',
         borderColor: '#d3d3d3',
+
         marginHorizontal: 8,
       },
     },
@@ -59,140 +67,169 @@ const BookNow = () => {
   ], [selectedId]);
 
   return (
-    <ScrollView style={Styles.Mainview}>
-      <View style={Styles.iconstyle}>
-        <TouchableOpacity onPress={navigation.goBack}>
-          <Icon name="arrowleft" type="AntDesign" color="black" size={25} />
-        </TouchableOpacity>
-        <Icon name="bell" type="Feather" color="black" size={23} />
-      </View>
-
-      <View>
-        <Text style={Styles.BookNow}>Book Now</Text>
-      </View>
-
-      <View>
-        <Text style={Styles.Textstyle}>Nemo enim ipsam{"\n"} voluptatem</Text>
-      </View>
-
-      <View>
-        <Image style={Styles.Image} source={require('../../images/image1.png')} />
-      </View>
-
-      <View>
-        <Text style={Styles.Selecteddate}>Select Date</Text>
-      </View>
-      <View style={Styles.View}>
-        <View style={Styles.Onetimestyle}>
-          <Text style={Styles.Onetime}>One Time</Text>
-        </View>
-        <View style={Styles.Fulltime}>
-          <Text style={Styles.FullTime}>Full Time</Text>
-        </View>
-      </View>
-      <View style={{ marginHorizontal: 20, marginTop: 10 }}>
-        <Calendar
-          onDayPress={onDayPress}
-          markedDates={{
-            [selectedDate]: { selected: true, marked: true, selectedColor: '#3A4DA0', },
-          }}
-          theme={{
-
-            selectedDayBackgroundColor: '#3A4DA0',
-            selectedDayTextColor: 'white',
-            todayTextColor: '#3A4DA0',
-            arrowColor: '#3A4DA0',
-
-          }}
-        />
-        <View style={Styles.radioGroupContainer}>
-          <RadioGroup
-            radioButtons={radioButtons}
-            onPress={setSelectedId}
-            selectedId={selectedId}
-            layout="row"
-          />
-        </View>
-      </View>
-      <View>
-        <Text style={Styles.Selecteddate1}>Select Time</Text>
-      </View>
-      <View style={Styles.Flex} >
-        <View style={Styles.Onetimestyle}>
-          <Text style={Styles.Onetime}>Morning</Text>
-        </View>
-        <View style={Styles.Onetimestyle1}>
-          <Text style={Styles.Onetime1}>Afternoon</Text>
-        </View>
-        <View style={Styles.Onetimestyle1}>
-          <Text style={Styles.Onetime1}>Evening</Text>
-        </View>
-        <View style={Styles.Onetimestyle1}>
-          <Text style={Styles.Onetime1}>Night</Text>
-        </View>
-      </View>
-      <View>
-        <View style={Styles.Flexstyle}>
-          <View>
-            <Text style={Styles.Fromtext}>From</Text>
-            <TextInput placeholder='07:00 Am' />
-          </View>
-          <Image style={Styles.Clockstyle} source={require('../../images/Clock.png')} />
-        </View>
-      </View>
-      <View>
-        <View style={Styles.Flexstyle}>
-          <View>
-            <Text style={Styles.Fromtext}>To:</Text>
-            <TextInput placeholder='07:00 Am' />
-          </View>
-          <Image style={Styles.Clockstyle} source={require('../../images/Clock.png')} />
-        </View>
-      </View>
-      <View>
-        <Text style={Styles.Selecteddate1}>Children</Text>
-      </View>
-      <View style={Styles.Flexstyle}>
-        <View>
-          <Text style={Styles.Fromtext}>Child 1</Text>
-          <TextInput placeholder='Child Name,Age' />
-        </View>
-      </View>
-      <View style={Styles.FlexDirection}>
-        <Image style={Styles.Imagestyle} source={require('../../images/Add.png')} />
-        <Text style={Styles.Addchild}>Add Another Child</Text>
-      </View>
-      <View style={Styles.margin}>
-        <Text style={Styles.Experiencetxt}>Address</Text>
-        <View style={Styles.Addresstyle}>
-          <View>
-            <Text>
-              Nemo enim ipsam
-            </Text>
-            <Text>aspernatur aut odit aut fugit,</Text>
-            <Text>consequuntur ma</Text>
-          </View>
-          <View>
-            <Icon name="location" type="Ionicons" />
-          </View>
-        </View>
-      </View>
-      <View style={Styles.FlexDirection}>
-        <Image style={Styles.Imagestyle} source={require('../../images/Add.png')} />
-        <Text style={Styles.Addchild}>Add Direction</Text>
-      </View>
-      <View>
-        <Text style={Styles.Selecteddate1}>Note</Text>
-        <TextInput style={Styles.Notes} />
-      </View>
-      <View style={Styles.ViewIcon}>
-        <View style={Styles.IconContainer}>
+    <ScrollView style={Styles.MainView}>
+      <ImageBackground resizeMode='contain' style={{ width: '100%' }} source={require('../../images/background.png')}>
+        <View style={Styles.iconStyle}>
           <TouchableOpacity onPress={navigation.goBack}>
-            <Icon name="cross" type='Entypo' color="#3A4DA0" />
+            <Icon name="arrowleft" type="AntDesign" color="black" size={25} />
+          </TouchableOpacity>
+          <Icon name="bell" type="Feather" color="black" size={23} />
+        </View>
+
+        <View>
+          <Text style={Styles.BookNow}>Book Now</Text>
+        </View>
+
+        <View>
+          <Text style={Styles.TextStyle}>Nemo enim ipsam{"\n"}voluptatem</Text>
+        </View>
+
+        <View>
+          <Image style={Styles.Image} source={require('../../images/image1.png')} />
+        </View>
+
+        <View>
+          <Text style={Styles.SelectedDate}>Select Date</Text>
+        </View>
+        <View style={Styles.View}>
+          <TouchableOpacity
+            style={selectedButton === 'oneTime' ? Styles.OneTimeStyle : Styles.FullTimeStyle}
+            onPress={() => setSelectedButton('oneTime')}
+          >
+            <Text style={selectedButton === 'oneTime' ? Styles.OneTime : Styles.FullTime}>
+              One Time
+            </Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={selectedButton === 'fullTime' ? Styles.Defaultstyle : Styles.FullTimeStyle}
+            onPress={() => setSelectedButton('fullTime')}
+          >
+            <Text style={selectedButton === 'fullTime' ? Styles.OneTime : Styles.FullTime}>
+              Full Time
+            </Text>
           </TouchableOpacity>
         </View>
-        <CustomButton tittle='Book Now' onPress={() => navigation.navigate('ConfirmBooking')} customStyle={Styles.Button} />
-      </View>
+        <View style={{ marginHorizontal: 20, marginTop: 10 }}>
+          <Calendar
+
+
+            onDayPress={onDayPress}
+            markedDates={{
+              [selectedDate]: { selected: true, marked: true, selectedColor: '#3A4DA0', },
+              '2025-01-15': { startingDay: true, color: '#D6DFF2', textColor: 'black' },
+              '2025-01-16': { color: '#D6DFF2', textColor: 'black' },
+              '2025-01-17': { endingDay: true, color: '#D6DFF2', textColor: 'black' },
+
+            }}
+            theme={{
+
+              selectedDayBackgroundColor: 'black',
+              selectedDayTextColor: 'red',
+              todayTextColor: '#3A4DA0',
+              arrowColor: '#3A4DA0',
+
+
+
+            }}
+            markingType="period"
+
+
+
+          />
+          <View style={Styles.radioGroupContainer}>
+            <RadioGroup
+              radioButtons={radioButtons}
+              onPress={setSelectedId}
+              selectedId={selectedId}
+              layout="row"
+            />
+          </View>
+        </View>
+        <View>
+          <Text style={Styles.SelectedDate1}>Select Time</Text>
+        </View>
+        <View style={Styles.Flex}>
+          {['Morning', 'Afternoon', 'Evening', 'Night'].map((time) => (
+            <TouchableOpacity
+              key={time}
+              style={selectedDay === time ? Styles.selectedStyle : Styles.unselectedStyle}
+              onPress={() => setSelectedDay(time)}
+            >
+              <Text style={selectedDay === time ? Styles.selectedText : Styles.unselectedText}>
+                {time}
+              </Text>
+            </TouchableOpacity>
+          ))}
+        </View>
+
+
+        <View style={{ marginTop: 20 }}>
+          <View>
+            <View style={Styles.FlexStyle}>
+              <View>
+                <Text style={Styles.FromText}>From</Text>
+                <TextInput placeholder='07:00 Am' style={Styles.Marginleft} />
+              </View>
+              <Image style={Styles.ClockStyle} source={require('../../images/Clock.png')} />
+            </View>
+          </View>
+          <View>
+            <View style={Styles.FlexStyle}>
+              <View >
+                <Text style={Styles.FromText}>To:</Text>
+                <TextInput placeholder='07:00 Am' style={Styles.Marginleft} />
+              </View>
+              <Image style={Styles.ClockStyle} source={require('../../images/Clock.png')} />
+            </View>
+          </View>
+          <View>
+            <Text style={Styles.SelectedDate1}>Children</Text>
+          </View>
+          <View style={Styles.FlexStyle}>
+            <View>
+              <Text style={Styles.FromText}>Child 1</Text>
+              <TextInput placeholder='Child Name,Age' style={Styles.Marginleft} />
+            </View>
+          </View>
+        </View>
+        <View style={Styles.FlexDirection}>
+          <Image style={Styles.ImageStyle} source={require('../../images/Add.png')} />
+          <Text style={Styles.AddChild}>Add Another Child</Text>
+        </View>
+        <View style={Styles.Margin}>
+          <Text style={Styles.ExperienceTxt}>Address</Text>
+          <View style={Styles.AddressStyle}>
+            <View >
+              <Text style={Styles.AddresStyle}>
+                Nemo enim ipsam
+              </Text>
+              <Text style={Styles.Marginleft}>aspernatur aut odit aut fugit,</Text>
+              <Text style={Styles.Marginleft} >consequuntur ma</Text>
+            </View>
+            <View style={Styles.MarginRight}>
+              <Icon name="location" type="Ionicons" />
+            </View>
+          </View>
+        </View>
+        <View style={Styles.FlexDirection}>
+          <Image style={Styles.ImageStyle} source={require('../../images/Add.png')} />
+          <Text style={Styles.AddChild}>Add Direction</Text>
+        </View>
+        <View >
+          <Text style={Styles.SelectedDate1}>Note</Text>
+          <TextInput style={Styles.Notes} />
+        </View>
+        <View style={Styles.ViewIcon}>
+          <View style={Styles.IconContainer}>
+            <TouchableOpacity onPress={navigation.goBack}>
+              <Image source={require('../../images/cross.png')} style={Styles.CrossIcon} />
+
+            </TouchableOpacity>
+          </View>
+          <CustomButton tittle='BOOK NOW' customstyle={{ fontFamily: theme.BOLD }} onPress={() => navigation.navigate('ConfirmBooking')} customStyle={Styles.Button} />
+        </View>
+      </ImageBackground>
     </ScrollView>
   );
 };

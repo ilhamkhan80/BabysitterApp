@@ -6,11 +6,11 @@ import { useNavigation } from '@react-navigation/native'
 const Splash = () => {
   const navigation=useNavigation()
   return (
-    <View  style={Styles.viewstyle}>
-    <View style={Styles.imagestyle} >
+    <View  style={Styles.ViewStyle}>
+    <View style={Styles.ImageStyle} >
       <Image style={Styles.image}source={require('../../images/baby.png')}/>
-      <View style={Styles.viewtext}>
-        <Text style={Styles.text}>BabySitter</Text>
+      <View style={Styles.ViewText}>
+        <Text style={Styles.Text}>BabySitter</Text>
         </View>
       </View>
      

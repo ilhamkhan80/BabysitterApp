@@ -4,10 +4,61 @@ import Colors from '../../themes/Colors'
 
 
 const Styles = StyleSheet.create({
-view:{alignSelf:'center',marginTop:10},
-text:{color:Colors.Black,fontSize:20},
-textstyle:{justifyContent:'center',alignItems:'center',alignSelf:'center',fontSize:15},
-imagestyle:{resizeMode:'cover'},
+    View: {
+        alignSelf: 'center',
+        marginTop:20
+    },
+    Text: {
+        color: Colors.Black,
+        fontSize: 20,
+        marginBottom:10
+        
+    },
+    TextStyle: {
+        
+        alignSelf: 'center',
+        fontSize: 16,
+        color:Colors.lightblack,
+        fontWeight:400,
+    
+     
+    },
+    ImageStyle: {
+        resizeMode: 'stretch',
+        width:380,
+        height:450,
+        alignSelf:'center',
+        left:-3,
+
+    },
+ 
+    container: {
+        flex: 1,
+      },
+      dotContainer: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+    
+        
+      },
+      dot: {
+        height: 10,
+        width: 10,
+        borderRadius: 5,
+        marginHorizontal: 5,
+      },
+      skipButton: {
+        top:-20,
+        
+        
+     
+      },
+      skipText: {
+        fontSize: 16,
+        color: '#999999',
+        textAlign:'right',
+        marginRight:20
+      },
 
 })
 export default Styles

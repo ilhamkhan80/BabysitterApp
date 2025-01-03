@@ -1,4 +1,4 @@
-import { Image, Modal, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { Image, ImageBackground, Modal, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import React, { useMemo, useState } from 'react';
 import Icon from '../../themes/Icons';
 import Styles from './Style';
@@ -50,7 +50,7 @@ const Childinfo = () => {
                 color: '#000',
             },
             size: 25,
-            color: selectedId === '1' ? '#3A4DA0' : '#d3d3d3',
+            color: selectedId === '1' ? '#3A4DA0' : '#3A4DA0',
             selected: selectedId === '1',
             containerStyle: {
                 flexDirection: 'row',
@@ -61,7 +61,7 @@ const Childinfo = () => {
                 borderWidth: 1,
                 borderRadius: 8,
                 padding: 12,
-                width: 160,
+                width: '40%',
             },
         },
         {
@@ -74,7 +74,7 @@ const Childinfo = () => {
                 color: '#000',
             },
             size: 25,
-            color: selectedId === '2' ? '#3A4DA0' : '#d3d3d3',
+            color: selectedId === '2' ? '#3A4DA0' : '#3A4DA0',
             selected: selectedId === '2',
             containerStyle: {
                 flexDirection: 'row',
@@ -85,42 +85,47 @@ const Childinfo = () => {
                 borderWidth: 1,
                 borderRadius: 8,
                 padding: 12,
-                width: 160,
+                width: '40%',
+
             },
         },
     ], [selectedId]);
 
     return (
-        <View >
-            <View style={{ flex: 1 }}>
-                <Image style={Styles.ImageStyle} source={require('../../images/Myprofile.png')} />
-            </View>
+        <ScrollView style={{backgroundColor:'white',flex:1}}>
+        <ImageBackground resizeMode='conatin' style={{width:'100%'}} source={require('../../images/Myprofile.png')}>
+
             <View style={Styles.Icon}>
-                <TouchableOpacity onPress={navigation.goBack}>
+                <TouchableOpacity style={{marginLeft:10}} onPress={navigation.goBack}>
                     <Icon name="arrowleft" type="AntDesign" color="black" size={20} />
                 </TouchableOpacity>
+                <TouchableOpacity style={{marginRight:10}}>
                 <Icon name="bell" type="Feather" color="gray" size={23} />
+                </TouchableOpacity>
             </View>
             <View style={Styles.MyProfile}>
-                <Text style={Styles.Profilestyle}>Add Child Info </Text>
+                <Text style={Styles.ProfileStyle}>Add Child Info</Text>
             </View>
             <View>
                 <Image style={Styles.Image} source={require('../../images/Child.png')} />
                 <TouchableOpacity onPress={openImagePicker}>
-                    <Image style={Styles.Imagestyle} source={require('../../images/Camera.png')} />
+                    <Image style={Styles.ImageStyleAlt} source={require('../../images/Camera.png')} />
                 </TouchableOpacity>
             </View>
-            <CustomInput placeholder="Child Name" />
-            <CustomInput placeholder="Date Of Birth" Icon="true" name="calendar" size={25} type="Feather" />
-            <View style={Styles.Textinput}>
-                <TextInput placeholder='Additional Notes' multiline={true} style={Styles.Textstyle} />
+            <View style={{marginTop:30}}>
+            <View style={{justifyContent:'center',alignItems:'center',alignSelf:'center'}}>
+            <CustomInput placeholder="Child Name" customstyle={Styles. CustomStyle} />
+            <CustomInput placeholder="Date Of Birth" Icon="true" name="calendar" size={25} type="Feather" customstyle={Styles. CustomStyle} />
+            <View style={Styles.TextInput}>
+                <TextInput placeholder='Additional Notes' multiline={true} style={Styles.TextStyle} />
             </View>
-            <View style={Styles.margin}>
-                <Text style={Styles.Experiencetxt}>Gender
+            </View>
+            <View style={Styles.Margin}>
+                <Text style={Styles.ExperienceText}>Gender
 
                 </Text>
             </View>
-            <View style={Styles.radioGroupContainer}>
+            <View style={Styles.RadioGroupContainer}>
                 <RadioGroup
                     radioButtons={radioButtons}
                     onPress={setSelectedId}
@@ -130,25 +135,29 @@ const Childinfo = () => {
             </View>
             <CustomButton
                 tittle="Add Child" onPress={() => setModalVisible(true)}
-                customStyle={{ width: '90%' }} />
+                customStyle={{ width: '90%',width:312,height:44 }} />
+                </View>
             <Modal
                 visible={isModalVisible}
                 transparent={true}
                 animationType="slide"
                 onRequestClose={() => setModalVisible(false)}
             >
-                <View style={Styles.modalContainer}>
-                    <View style={Styles.modalContent}>
-                        <Image style={Styles.Modalimage} source={require('../../images/Modalimage.png')} />
+                <View style={Styles.ModalContainer}>
+                    <View style={Styles.ModalContent}>
+                        <Image style={Styles.ModalImage} source={require('../../images/Modalimage.png')} />
 
-                        <Text style={Styles.modalText}>Added Sucessfully</Text>
-                        <Text style={Styles.Loremtextstyle}>Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam,{"\n"}   purusorem ipsum dolor sit amet, consectetur adipiscing elit ut{"\n"}</Text>
-                        <Text style={Styles.Loremtextstyle}>aliquam,.</Text>
-                        <CustomButton tittle='close' customStyle={Styles.Buttonstyle} onPress={() => setModalVisible(false)} />
+                        <Text style={Styles.ModalText}>Added Sucessfully</Text>
+                        <View style={{width:347}}>
+                        <Text style={Styles.LoremTextStyle}>Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam,{"\n"}   purusorem ipsum dolor sit amet, consectetur adipiscing elit ut{"\n"}</Text>
+                        <Text style={Styles.LoremTextStyle1}>aliquam,.</Text>
+                        </View>
+                        <CustomButton tittle='close' customStyle={Styles.ButtonStyle} onPress={() => setModalVisible(false)} />
                     </View>
                 </View>
             </Modal>
-        </View>
+            </ImageBackground>
+        </ScrollView>
     );
 };
 export default Childinfo
