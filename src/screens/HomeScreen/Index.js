@@ -109,7 +109,7 @@ const HomeScreen = () => {
                   <Icon name="heart" color="#FF5166" CustomStyle={{ alignSelf: 'flex-end' }} />
                   <Text style={{ fontFamily: theme.BOLD }}>{item.name}</Text>
                   <Text style={Styles.discription}>{item.discription}</Text>
-                  <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                  <View style={Styles.View}>
                     <Image style={{ height: 15, width: 15 }} source={require('../../images/Star.png')} />
                     <Text style={{ fontFamily: theme.BOLD, marginLeft: 10 }}>4.7</Text>
                     <Text style={Styles.Reviews}>(132 Reviews)</Text>

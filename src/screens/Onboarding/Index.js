@@ -66,28 +66,30 @@ const Onboarding = () => {
 
   return (
     <View style={Styles.container}>
-      <ScrollView showsVerticalScrollIndicator={false}>
-        {renderOnboardingScreens()}
-      </ScrollView>
-      
+    <ScrollView >
+      {renderOnboardingScreens()}
+    </ScrollView>
+
+    {steps < 2 && (
       <View style={Styles.dotContainer}>
         {[0, 1, 2].map((_, index) => (
           <View
             key={index}
             style={[
               Styles.dot,
-              { backgroundColor: steps === index ? '#3A4DA0' : '#D9D9D9' }, 
+              { backgroundColor: steps === index ? '#3A4DA0' : '#D9D9D9' },
             ]}
           />
         ))}
       </View>
+    )}
 
-      {steps < 2 && (
-        <TouchableOpacity style={Styles.skipButton} onPress={() => handleNavigation()}>
-          <Text style={Styles.skipText}>Skip</Text>
-        </TouchableOpacity>
-      )}
-    </View>
+    {steps < 2 && (
+      <TouchableOpacity style={Styles.skipButton} onPress={() => handleNavigation()}>
+        <Text style={Styles.skipText}>Skip</Text>
+      </TouchableOpacity>
+    )}
+  </View>
   )
 }
 

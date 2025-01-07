@@ -23,6 +23,11 @@ const Styles = StyleSheet.create({
         padding: 10,
         alignItems: 'center'
     },
+    View:{ 
+        flexDirection: 'row', 
+        alignItems: 'center' 
+
+    },
     liststyle: {
         borderWidth: 1,
         margin: 10,

@@ -1,15 +1,5 @@
 import React, { useMemo, useState } from 'react';
-import {
-    Image,
-    ScrollView,
-    StyleSheet,
-    Text,
-    TouchableOpacity,
-    View,
-    Modal,
-    Button,
-    ImageBackground,
-} from 'react-native';
+import {Image,ScrollView,StyleSheet,Text,TouchableOpacity,View,Modal,ImageBackground,} from 'react-native';
 import Icon from '../../themes/Icons';
 import Styles from '../EditProfile/Style';
 import CustomInput from '../../components/CustomInput';

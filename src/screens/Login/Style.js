@@ -5,7 +5,7 @@ import Colors from '../../themes/Colors'
 const Styles = StyleSheet.create({
     MainView:{
         flex:1,
-        backgroundColor:'white'
+        backgroundColor:Colors.bacckgroundcolor
     },
     Text: {
         fontSize: 20,

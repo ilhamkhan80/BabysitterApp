@@ -43,8 +43,11 @@ const Styles = StyleSheet.create({
         padding: 10,
         borderRadius: 24,
         borderColor: Colors.purple,
-        height: 52,
-        width: 340,
+        height: 45,
+        width: '90%',
+        marginLeft:15,
+        alignSelf:'center',
+
 
     },
     facebook: {
@@ -56,8 +59,10 @@ const Styles = StyleSheet.create({
         padding: 10,
         borderRadius: 24,
         backgroundColor: Colors.fb,
-        height: 52,
-        width: 340,
+        height: 45,
+        width: '90%',
+        marginLeft:15,
+        alignSelf:'center'
 
         
     },
@@ -72,9 +77,9 @@ const Styles = StyleSheet.create({
         fontFamily: theme.BOLD,
     },
     buttonStyle: {
-        width: 340,
+        width: '90%',
         borderRadius: 24,
-        height: 48,
+        height: 45,
     },
     ButtonStyleAlt: {
         marginTop: 10,
@@ -92,6 +97,11 @@ const Styles = StyleSheet.create({
         color: 'black',
        
        
+    },
+    MainView:{
+        flex:1,
+        backgroundColor:Colors.bacckgroundcolor
+
     },
     
 })

@@ -7,24 +7,54 @@ import Colors from '../../themes/Colors';
 import { RadioGroup } from 'react-native-radio-buttons-group';
 import CustomButton from '../../components/CustomButton';
 import { useNavigation } from '@react-navigation/native';
+import moment from 'moment';
+
 import theme from '../../utils/Constants';
 const BookNow = () => {
   const navigation = useNavigation()
-  const [selectedDate, setSelectedDate] = useState('');
+  const [selected, setSelected] = useState({});
+  const [startDate, setStartDate] = useState(today);
+
+  const handleDayPress = (day) => {
+    const selectedDate = day.dateString;
+    if (!startDate || moment(selectedDate).isBefore(startDate)) {
+        setStartDate(selectedDate);
+        setSelected({
+            [selectedDate]: {
+                selected: true,
+                color: Colors.Black,
+                textColor: Colors.Black,
+            },
+        });
+    } else {
+        // Mark the range between startDate and selectedDate
+        const rangeDates = {};
+        const start = moment(startDate);
+        const end = moment(selectedDate);
+        for (let m = start; m.isSameOrBefore(end); m.add(1, 'day')) {
+            const date = m.format('YYYY-MM-DD');
+            rangeDates[date] = {
+                selected: true,
+                // color: COLOR.white,
+                // textColor: COLOR.primary,
+            };
+        }
+        setSelected(rangeDates);
+        setStartDate(null); 
+    }
+};
+
+
+
+
+
   const [selectedButton, setSelectedButton] = useState('oneTime');
   const [selectedDay, setSelectedDay] = useState('Morning');
 
 
   const [selectedId, setSelectedId] = useState(null);
-  const [markedDates, setMarkedDates] = useState({
-    '2025-01-15': { startingDay: true, color: '#D6DFF2', textColor: 'black' },
-    '2025-01-16': { color: '#D6DFF2', textColor: 'black' },
-    '2025-01-17': { endingDay: true, color: '#D6DFF2', textColor: 'black' },
-  });
-  const onDayPress = (day) => {
-    setSelectedDate(day.dateString);
-    console.log('Selected Date:', day.dateString);
-  };
+
+
   const radioButtons = useMemo(() => [
     {
       id: '1',
@@ -34,6 +64,7 @@ const BookNow = () => {
         fontWeight: 'bold',
         color: '#000',
       },
+
       size: 15,
       color: selectedId === '1' ? '#3A4DA0' : '#d3d3d3',
       selected: selectedId === '1',
@@ -111,32 +142,36 @@ const BookNow = () => {
           </TouchableOpacity>
         </View>
         <View style={{ marginHorizontal: 20, marginTop: 10 }}>
-          <Calendar
 
+        <Calendar
+                        style={styles.Calender}
+                        onDayPress={handleDayPress}
+                        markedDates={selected}
+                        markingType={'period'}
 
-            onDayPress={onDayPress}
-            markedDates={{
-              [selectedDate]: { selected: true, marked: true, selectedColor: '#3A4DA0', },
-              '2025-01-15': { startingDay: true, color: '#D6DFF2', textColor: 'black' },
-              '2025-01-16': { color: '#D6DFF2', textColor: 'black' },
-              '2025-01-17': { endingDay: true, color: '#D6DFF2', textColor: 'black' },
+                        minDate={moment().format('YYYY-MM-DD')}
+                        maxDate={moment().add(1, 'year').format('YYYY-MM-DD')}
 
-            }}
-            theme={{
+                        theme={{
+                            // calendarBackground: COLOR.primary,
+                            // selectedDayTextColor: COLOR.primary,
+                            // selectedDayBackgroundColor: COLOR.white,
+                            // todayTextColor: COLOR.white,
+                            // dayTextColor: COLOR.white,
+                            // textSectionTitleColor: COLOR.white,
+                            // textDayFontFamily: FONT.regular,
+                            // textDayHeaderFontSize: 12,
+                            // textDayFontSize: 16,
+                            // textMonthFontFamily: FONT.semiBold,
+                            // textDayHeaderFontFamily: FONT.semiBold,
+                            // arrowColor: COLOR.white,
+                            // todayBackgroundColor: COLOR.yellow,
+                            // monthTextColor: COLOR.white,
+                            // monthTextFontsize: 16.53,
+                            // textDisabledColor: COLOR.borderbox,
+                        }}
+                    />
 
-              selectedDayBackgroundColor: 'black',
-              selectedDayTextColor: 'red',
-              todayTextColor: '#3A4DA0',
-              arrowColor: '#3A4DA0',
-
-
-
-            }}
-            markingType="period"
-
-
-
-          />
           <View style={Styles.radioGroupContainer}>
             <RadioGroup
               radioButtons={radioButtons}
@@ -236,4 +271,16 @@ const BookNow = () => {
 
 export default BookNow;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  Calender: {
+    // width: wp(90),
+    alignSelf: 'center',
+    borderRadius: 9.07,
+    // backgroundColor: COLOR.primary,
+    // paddingBottom: hp(.5),
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 10,
+},
+});

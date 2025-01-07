@@ -8,7 +8,7 @@ const Splash = () => {
   return (
     <View  style={Styles.ViewStyle}>
     <View style={Styles.ImageStyle} >
-      <Image style={Styles.image}source={require('../../images/baby.png')}/>
+      <Image style={Styles.Image}source={require('../../images/baby2.png')}/>
       <View style={Styles.ViewText}>
         <Text style={Styles.Text}>BabySitter</Text>
         </View>

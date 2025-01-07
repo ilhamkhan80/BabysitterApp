@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native'
+import { Image, StyleSheet } from 'react-native'
 import Colors from '../../themes/Colors'
 import theme from '../../utils/Constants'
 
@@ -21,6 +21,11 @@ const Styles = StyleSheet.create({
         fontSize: 35,
         fontFamily: theme.REGULAR,
     },
+    Image:{
+        width:200,
+            height:200
+        
+    }
 
 })
 export default Styles

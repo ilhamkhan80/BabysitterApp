@@ -24,7 +24,7 @@ const CreateAccount = () => {
     };
 
     return (
-        <View style={{flex:1,backgroundColor:'white'}}>
+        <View style={Styles.MainView}>
             <View style={Styles.view}>
                 <Text style={Styles.text}>Create account</Text>
             </View>

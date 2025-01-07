@@ -21,6 +21,8 @@ const Colors = {
   lightblack:'#021619',
   purplish:'#0C0F20',
   hourscolor:'#0C0F2080',
+  bacckgroundcolor:'#FDFDFD',
+
 
 
 

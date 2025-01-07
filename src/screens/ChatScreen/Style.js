@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { Image, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import theme from '../../utils/Constants'
 import Colors from '../../themes/Colors'
@@ -22,13 +22,15 @@ const Styles = StyleSheet.create({
     Flex: {
         flexDirection: 'row',
         alignItems: 'center',
+
+
     },
     TextInput: {
         flexDirection: 'row',
         alignItems: 'center',
     },
     Arrow: {
-        height: 52,
+        height: 58,
         width: 60,
 
     },
@@ -83,8 +85,9 @@ const Styles = StyleSheet.create({
     },
     TimingStyle: {
         fontSize: 10,
-        marginLeft: 5,
-        justifyContent:'flex-end',
+        marginLeft: 15,
+        justifyContent: 'flex-end',
+
     },
     ChatStyle2: {
         backgroundColor: Colors.lightpurple,
@@ -95,6 +98,13 @@ const Styles = StyleSheet.create({
         height: 76,
 
 
+    },
+    ImageStyle: {
+        position: 'absolute',
+        top: 3,
+        width: 10,
+        height: 8,
+        marginLeft: 4
     },
     LoremTextStyle1: {
         fontSize: 12,
@@ -108,9 +118,11 @@ const Styles = StyleSheet.create({
         fontSize: 10,
         marginLeft: 5,
         alignSelf: 'flex-end',
-        position:'absolute',
-        right:10,
-        
+        position: 'absolute',
+        right: 10,
+        top: 5,
+
+
         // marginRight: 20,
     },
     ChatStyle: {
@@ -129,9 +141,9 @@ const Styles = StyleSheet.create({
     //     marginVertical: 5,
     //     flexWrap: 'wrap',
     //   },
-    Image:{
-        position:'absolute',
-        left:-10
+    Image: {
+        position: 'absolute',
+        left: -10
     },
     // Image2:{
     //     position:'absolute',

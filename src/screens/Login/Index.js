@@ -41,7 +41,7 @@ const Login = () => {
 
       </View>
       </View>
-      <CustomButton tittle='LOGIN'customstyle={{fontFamily:theme.BOLD}} customStyle={{ width: 330,height:48 }}
+      <CustomButton tittle='LOGIN'customstyle={{fontFamily:theme.BOLD}} customStyle={{ width: '90%',height:48 }}
         onPress={() => navigation.navigate('Home')}
       />
       <View style={Styles.TextStyleCentered}>

@@ -25,15 +25,17 @@ const Styles = StyleSheet.create({
     },
     ImageStyle: {
         resizeMode: 'stretch',
-        width:380,
+        // width:410,
         height:450,
         alignSelf:'center',
         left:-3,
+        width:'105%',
 
     },
  
     container: {
         flex: 1,
+        backgroundColor:'white'
       },
       dotContainer: {
         flexDirection: 'row',

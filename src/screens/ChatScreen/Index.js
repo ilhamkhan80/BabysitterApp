@@ -54,9 +54,11 @@ const ChatScreen = () => {
           <Text style={Styles.LoremTextStyle1}>{item.text}</Text>
         </View>
       )}
-      <View >
+      <View style={{flexDirection:'row',alignItems:'center'}} >
       <Text style={item.sender === 'me' ? Styles.TimingStyle : Styles.TimingStyle1}>{item.time}</Text>
-      
+     { item.sender === 'me' ?(
+      <Image style={Styles.ImageStyle}source={require('../../images/Tick.png')}/>):null
+    }
       </View>
       
     </View>

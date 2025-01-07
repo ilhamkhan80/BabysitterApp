@@ -52,11 +52,9 @@ const Styles = StyleSheet.create({
     },
     View: {
         width: 166,
-        borderWidth: 1,
         borderRadius: 80,
         flexDirection: 'row',
-        borderColor: Colors.whitesh,
-        backgroundColor: Colors.whitesh,
+        backgroundColor: Colors.Atfernoon,
         marginLeft: 15,
         marginBottom: 15
     },

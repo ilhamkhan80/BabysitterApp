@@ -17,11 +17,11 @@ const styles = StyleSheet.create({
   border: {
     backgroundColor: Colors.purple,
     borderRadius: 24,
-    padding: 12,
+    padding: 5,
     justifyContent:'center',
     alignSelf:'center',
     width: 188,
-    height:40,
+    height:48,
     marginTop: 30,
     marginBottom:20
 },
@@ -29,6 +29,7 @@ textstyle: {
     color: Colors.White,
     alignSelf: 'center',
     textAlign:'center',
+  
 },
 
 })
