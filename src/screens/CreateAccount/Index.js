@@ -34,7 +34,7 @@ const CreateAccount = () => {
                 </Text>
                 <Text style={Styles.txtStyle}>adipiscing elit  sit amet, consectetur.</Text>
             </View>
-            <View style={{marginTop:10}}>
+            <View style={Styles.ViewStyle}>
             <View style={Styles.viewStyle}>
                 <Text style={Styles.textStyle}>
                     Your email

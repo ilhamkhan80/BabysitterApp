@@ -2,9 +2,7 @@ import { Image, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
 import Styles from './Style'
-import { useNavigation } from '@react-navigation/native'
 const Splash = () => {
-  const navigation=useNavigation()
   return (
     <View  style={Styles.ViewStyle}>
     <View style={Styles.ImageStyle} >

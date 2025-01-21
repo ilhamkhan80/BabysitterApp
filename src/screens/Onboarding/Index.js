@@ -23,11 +23,9 @@ const Onboarding = () => {
             <View style={Styles.View}>
               <Text style={Styles.Text}>Lorem ipsum</Text>
             </View>
-            <View>
               <Text style={Styles.TextStyle}>Lorem ipsum dolor sit amet, consectetur</Text>
               <Text style={Styles.TextStyle}>adipiscing elit, sed do eiusmod tempor</Text>
               <Text style={Styles.TextStyle}>incididunt ut labore </Text>
-            </View>
             <CustomButton tittle='Continue' onPress={() => setSteps(steps + 1)} />
           </View>
         )
@@ -38,11 +36,9 @@ const Onboarding = () => {
             <View style={Styles.View}>
               <Text style={Styles.Text}>Lorem ipsum</Text>
             </View>
-            <View >
               <Text style={Styles.TextStyle}>Lorem ipsum dolor sit amet, consectetur</Text>
               <Text style={Styles.TextStyle}>adipiscing elit, sed do eiusmod tempor</Text>
               <Text style={Styles.TextStyle}>incididunt ut labore </Text>
-            </View>
             <CustomButton tittle='Continue' onPress={() => setSteps(steps + 1)} />
           </View>
         )
@@ -53,16 +49,15 @@ const Onboarding = () => {
             <View style={Styles.View}>
               <Text style={Styles.Text}>Lorem ipsum</Text>
             </View>
-            <View>
               <Text style={Styles.TextStyle}>Lorem ipsum dolor sit amet, consectetur</Text>
               <Text style={Styles.TextStyle}>adipiscing elit, sed do eiusmod tempor</Text>
               <Text style={Styles.TextStyle}>incididunt ut labore </Text>
-            </View>
             <CustomButton tittle='Get Started' onPress={() => handleNavigation()} />
           </View>
         )
     }
   }
+  
 
   return (
     <View style={Styles.container}>
@@ -75,6 +70,8 @@ const Onboarding = () => {
         {[0, 1, 2].map((_, index) => (
           <View
             key={index}
+            testID="dot"
+
             style={[
               Styles.dot,
               { backgroundColor: steps === index ? '#3A4DA0' : '#D9D9D9' },

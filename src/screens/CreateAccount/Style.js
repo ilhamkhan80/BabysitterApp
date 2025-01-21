@@ -50,6 +50,11 @@ const Styles = StyleSheet.create({
 
 
     },
+    ViewStyle:{
+        marginTop:10,
+        paddingHorizontal:'4%'
+
+    },
     facebook: {
         flexDirection: 'row',
         alignItems: 'center',
