@@ -8,7 +8,7 @@ const Like = () => {
     </View>
   <!-- This is a comment in HTML -->
     #codeisok
-    #Aymanfatima 03
+
   )
 }
 
