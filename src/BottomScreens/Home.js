@@ -6,6 +6,8 @@ const Home = () => {
     <View>
       <Text>Home</Text>
     </View>
+  <!-- This is a comment in HTML -->
+
   )
 }
 
