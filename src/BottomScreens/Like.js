@@ -6,6 +6,9 @@ const Like = () => {
     <View>
       <Text>Like</Text>
     </View>
+  <!-- This is a comment in HTML -->
+    #codeisok
+    #Aymanfatima 03
   )
 }
 
